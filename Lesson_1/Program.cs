@@ -17,3 +17,22 @@ else if (one > two)
     }
 else Console.WriteLine ("Второе число больше первого");
 return;
+
+// Задача 4: Напишите программу, которая принимает на вход
+// три числа и выдает максимальное из этих чисел.
+// 2, 3, 7 -> 7
+// 44 5 78 -> 78
+// 22 3 9 -> 22
+
+Console.WriteLine("Введите первое число: ");
+int one = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите второе число: ");
+int two = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите третье число: ");
+int three = Convert.ToInt32(Console.ReadLine());
+int max = one;
+if (two > one)
+    int max = two;
+if (three > max)
+    int max = three;
+return;
