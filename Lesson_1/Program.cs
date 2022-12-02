@@ -32,9 +32,9 @@ Console.WriteLine("Введите третье число: ");
 int three = Convert.ToInt32(Console.ReadLine());
 int max = one;
 if (two > one)
-    int max = two;
+    max = two;
 if (three > max)
-    int max = three;
+    max = three;
 Console.WriteLine(max);
 return;
 
