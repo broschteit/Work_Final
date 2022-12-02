@@ -35,6 +35,7 @@ if (two > one)
     int max = two;
 if (three > max)
     int max = three;
+Console.WriteLine(max);
 return;
 
 
