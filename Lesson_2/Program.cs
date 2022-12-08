@@ -4,9 +4,14 @@ Console.WriteLine("Введите трехзначное число: ");
 int num = Convert.ToInt32(Console.ReadLine());
 int result;
 if (num < 100 || num > 999)
+{
     Console.WriteLine("Введеное число не трехзначное!");
-else result = (num / 10) % 10;
+}
+else 
+{
+    result = (num / 10) % 10;
     Console.WriteLine(result);
+}
 
 
 //Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
