@@ -2,10 +2,11 @@
 
 Console.WriteLine("Введите трехзначное число: ");
 int num = Convert.ToInt32(Console.ReadLine());
+int result;
 if (num < 100 || num > 999)
     Console.WriteLine("Введеное число не трехзначное!");
 else result = (num / 10) % 10;
-    Console.WriteLine(result");
+    Console.WriteLine(result);
 
 
 //Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
@@ -27,7 +28,7 @@ else {
 
 Console.WriteLine("Введите число в интервале от 1 до 7, пропорционально дням недели 1 - понедельник, 2 - вторник и т.д.: ");
 int num = Convert.ToInt32(Console.ReadLine());
-if (num > 7 || < 1)
+if (num > 7 || num < 1)
     Console.WriteLine("Число не входит в диапазон от 1 до 7");
 else if (num > 5)
     Console.WriteLine("Да, этот день выходной!");
