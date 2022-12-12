@@ -9,7 +9,7 @@ string number = Console.ReadLine();
 
 void CheckingNumber(string number) 
 {
-  if (number[0]==number[4] || number[1]==number[3])
+  if (number[0]==number[4] && number[1]==number[3])
   {
     Console.WriteLine($"Ваше число: {number} - палиндром.");
   }
@@ -37,7 +37,7 @@ int z2 = Coordinate("z", "B");
 int Coordinate(string coorName, string pointName)
 {
     Console.Write($"Введите координату {coorName} точки {pointName}: ");
-    return Convert.ToInt16(Console.ReadLine());
+    return Convert.ToInt32(Console.ReadLine());
 }
 
 double Decision(double x1, double x2, 
