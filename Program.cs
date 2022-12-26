@@ -46,7 +46,33 @@ void PrintArray(int[] numbers)
 //[1, 2, 3, 6, 2] -> 0
 //[10, 11, 12, 13, 14] -> 5
 
+const int MINBORDER = 0;
+const int MAXBORDER = 150;
+const int LENGTH = 123;
 
+int[] Array(int size, int minR, int maxR)
+  {
+    int[] massiv = new int[size];
+    Random rand = new Random();
+    for (int i=0; i<massiv.Length; i++)
+    { massiv[i]=rand.Next(minR,maxR+1); }
+    return massiv;
+   }
+int CountBorders(int[] massiv)
+    {
+    int count = 0;
+    for (int i=0; i<massiv.Length; i++)
+    {
+    if (massiv[i]>=10 && massiv[i]<=99)
+    count++;
+    }
+    return count;
+  }
+
+int[] ShowArray = Array(LENGTH, MINBORDER, MAXBORDER); 
+Console.WriteLine($"[{string.Join(", ", ShowArray)}]");
+int difference = CountBorders(ShowArray);
+Console.WriteLine($"Количество элементов в диапазоне [10;99]: {difference}");
 
 
 
