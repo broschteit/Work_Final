@@ -90,10 +90,10 @@ Console.WriteLine("Ваш массив: ");
 PrintArray(numbers);
 int sum = 0;
 
-for (int z = 0; z < numbers.Length; z+=2)
-    sum = sum + numbers[z];
+for (int j = 1; j < numbers.Length; j+=2)
+    sum = sum + numbers[j];
 
-    Console.WriteLine($"всего {numbers.Length} чисел, сумма элементов на нечётных позициях = {sum}");
+    Console.WriteLine($"Всего {numbers.Length} чисел, сумма элементов на нечетных позициях = {sum}");
 
 void FillArrayRandomNumbers(int[] numbers)
 {
