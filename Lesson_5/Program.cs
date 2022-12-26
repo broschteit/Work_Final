@@ -2,6 +2,7 @@
 // количество чётных чисел в массиве.
 //[345, 897, 568, 234] -> 2
 
+
 Console.WriteLine("Задайте размер массива");
 int size = Convert.ToInt32(Console.ReadLine());
 int[] numbers = new int[size];
