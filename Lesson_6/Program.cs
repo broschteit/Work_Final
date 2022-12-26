@@ -71,16 +71,25 @@ void PrintArray(int[] array)
 // значения b1, k1, b2 и k2 задаются пользователем.
 //b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
-Console.WriteLine("введите значение b1");
-double b1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("введите число k1");
-double k1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("введите значение b2");
-double b2 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("введите число k2");
-double k2 = Convert.ToInt32(Console.ReadLine());
+Console.Clear();
+int ReadInt(string message)                        
+{
+    Console.WriteLine(message);
+    return Convert.ToInt32(Console.ReadLine());    
+}
 
-double x = (-b2 + b1)/(-k1 + k2);
-double y = k2 * x + b2;
+double b1 = ReadInt("Введите число: ");
+double k1 = ReadInt("Введите число: ");
+double b2 = ReadInt("Введите число: ");
+double k2 = ReadInt("Введите число: ");
 
-Console.WriteLine($"две прямые пересекутся в точке с координатами X: {x}, Y: {y}");
+if (k1 == k2)
+{
+    Console.WriteLine("Прямые параллельны");
+}
+else
+{
+    double x = (b1 - b2) / (k2 - k1);
+    double y = k2 * x + b2;
+    Console.WriteLine($"Две прямые пересекутся в точке с координатами X: {x}, Y: {y}");
+}
