@@ -17,6 +17,27 @@ for (int i = 0; i < numbers.Length; i++)
 Console.WriteLine();
 Console.WriteLine($"количество значений больше 0 = {sum}");
 
+int counts = 0;
+
+while (true)
+{
+    string message = Console.ReadLine();
+    if (message  == "stop")                                     
+    {
+        break;
+    }
+    else
+    {
+        double.TryParse(message, out double EnterNumber);       
+        if (EnterNumber > 0)                                     
+        {                                                        
+            counts++;                                           
+        }
+    }
+}
+
+Console.Write(counts);
+
 
 int[] StringToNum(string input)
 {
