@@ -61,7 +61,7 @@ if (n > numbers.GetLength(0) || m > numbers.GetLength(1))
 }
 else
 {
-    Console.WriteLine($"Значение элемента {n} строки и {m} столбца будет равно {numbers[n-1,m-1]}");
+    Console.WriteLine($"Значение элемента {n} строки и {m} столбца будет равно {numbers[n,m]}");
 }
 
 PrintArray(numbers);
