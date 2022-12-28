@@ -184,26 +184,25 @@ CreateArray(secomdMartrix);
 Console.WriteLine($"\nВторая матрица:");
 WriteArray(secomdMartrix);
 
-int[,] resultMatrix = new int[m,p];
+int[,] resultMatrix = MultiplyMatrix(firstMartrix, secomdMartrix);
 
-MultiplyMatrix(firstMartrix, secomdMartrix, resultMatrix);
+
 Console.WriteLine($"\nПроизведение первой и второй матриц:");
 WriteArray(resultMatrix);
 
-void MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMatrix)
+int[,] MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix)
 {
-  for (int i = 0; i < resultMatrix.GetLength(0); i++)
+  int[,] resultMatrix = new int[firstMartrix.GetLength(0), secomdMartrix.GetLength(1)]; 
+  for (int i = 0; i < firstMartrix.GetLength(0); i++)
   {
-    for (int j = 0; j < resultMatrix.GetLength(1); j++)
+    for (int j = 0; j < secomdMartrix.GetLength(1); j++)
     {
-      int sum = 0;
-      for (int k = 0; k < firstMartrix.GetLength(1); k++)
-      {
-        sum += firstMartrix[i,k] * secomdMartrix[k,j];
-      }
-      resultMatrix[i,j] = sum;
+      
+        resultMatrix[i,j] += firstMartrix[i,j] * secomdMartrix[i,j];
+      
     }
   }
+  return resultMatrix;
 }
 
 int InputNumbers(string input)
@@ -275,7 +274,7 @@ void WriteArray (int[,,] array3D)
       }
       Console.WriteLine();
     }
-    Console.WriteLine();
+    Console.ReadKey();
   }
 }
 
