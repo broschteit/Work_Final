@@ -244,75 +244,65 @@ void WriteArray (int[,] array)
 
 
 
-Console.WriteLine($"\nВведите размер массива X x Y x Z:");
-int x = InputNumbers("Введите X: ");
-int y = InputNumbers("Введите Y: ");
-int z = InputNumbers("Введите Z: ");
-Console.WriteLine($"");
-
-int[,,] array3D = new int[x, y, z];
-CreateArray(array3D);
-WriteArray(array3D);
-
-int InputNumbers(string input)
+bool FindDigits(int[,,] array, int element)                            
 {
-  Console.Write(input);
-  int output = Convert.ToInt32(Console.ReadLine());
-  return output;
-}
-
-void WriteArray (int[,,] array3D)
-{
-  for (int i = 0; i < array3D.GetLength(0); i++)
-  {
-    for (int j = 0; j < array3D.GetLength(1); j++)
+    for (int i = 0; i < array.GetLength(0); i++)                       
     {
-      Console.Write($"X({i}) Y({j}) ");
-      for (int k = 0; k < array3D.GetLength(2); k++)
-      {
-        Console.Write( $"Z({k})={array3D[i,j,k]}; ");
-      }
-      Console.WriteLine();
-    }
-    Console.ReadKey();
-  }
-}
-
-void CreateArray(int[,,] array3D)
-{
-  int[] temp = new int[array3D.GetLength(0) * array3D.GetLength(1) * array3D.GetLength(2)];
-  int  number;
-  for (int i = 0; i < temp.GetLength(0); i++)
-  {
-    temp[i] = new Random().Next(10, 100);
-    number = temp[i];
-    if (i >= 1)
-    {
-      for (int j = 0; j < i; j++)
-      {
-        while (temp[i] == temp[j])
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-          temp[i] = new Random().Next(10, 100);
-          j = 0;
-          number = temp[i];
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                if (array[i, j, k] == element) return true;
+            }
         }
-          number = temp[i];
-      }
     }
-  }
-  int count = 0; 
-  for (int x = 0; x < array3D.GetLength(0); x++)
-  {
-    for (int y = 0; y < array3D.GetLength(1); y++)
-    {
-      for (int z = 0; z < array3D.GetLength(2); z++)
-      {
-        array3D[x, y, z] = temp[count];
-        count++;
-      }
-    }
-  }
+    return false;
 }
+
+
+int[,,] GetRandomMatrix(int[] length, int min, int max)                     
+{
+    int[,,] result = new int[length[0], length[1], length[2]];
+
+    for (int i = 0; i < result.GetLength(0); i++)
+    {
+        for (int j = 0; j < result.GetLength(1); j++)
+        {
+            for (int k = 0; k < result.GetLength(2); k++)
+            {
+                int digit = new Random().Next(min, max + 1);
+                if (FindDigits(result, digit))                      
+                {
+                    continue;
+                }
+                result[i, j, k] = digit;
+            }
+        }
+    }
+    return result;
+}
+
+
+void PushArray(int[,,] array)                                           
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                Console.Write($"{array[i, j, k]} ({i},{j},{k}) \t");
+            }
+            Console.WriteLine("\n");
+        }
+    }
+}
+
+Console.WriteLine("Размер массива введите через пробелы:");
+string[] numbers = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+int[,,] array = GetRandomMatrix(new int[] { int.Parse(numbers[0]), int.Parse(numbers[1]), int.Parse(numbers[2]), }, 10, 99);
+Console.Write("\n");
+PushArray(array);
 
 
 
